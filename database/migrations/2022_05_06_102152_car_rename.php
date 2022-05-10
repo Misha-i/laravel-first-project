@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('cars', function (Blueprint $table){
+            // $table->renameColumn('user_id', 'contact_id');
+            \DB::statement("ALTER TABLE cars CHANGE COLUMN user_id contact_id INT;");
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('cars', function (Blueprint $table){
+            // $table->renameColumn('contact_id', 'user_id');
+        });
+    }
+};
