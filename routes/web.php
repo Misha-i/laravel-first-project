@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Requests\CarRequest;
 use Illuminate\Support\Facades\Request;
@@ -69,6 +69,6 @@ Route::get('/table1/{id}/update', [ContactController::class, 'update'])->name('u
 Route::post('/table1/{id}/update', [ContactController::class, 'update_submit'])->name('update_submit');
 Route::get('/table1/{id}/delete', [ContactController::class, 'delete'])->name('delete');
 
-Route::get('my_page', function (){
-    return view('my_page');
+Route::get('my_file', function (){
+    return view('myfile');
 });
