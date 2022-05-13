@@ -71,12 +71,4 @@ class ContactController extends Controller
         Contact::find($id)->delete();
         return redirect()->route('table1')->with('success', 'Повідомлення було видалено');
     }
-
-    public function name()
-    {
-        $contact = Contact::find(1);
-        return $contact->car->title;
-    }
-
-
 }
