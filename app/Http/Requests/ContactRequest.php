@@ -30,19 +30,13 @@ class ContactRequest extends FormRequest
             'message' => 'required|min:15|max:500'
         ];
     }
-    public function attributes()
-    {
-        return [
-            'name' => 'Ім\'я',
-        ];
-    }
+    
     public function messages()
     {
         return [
-            '*.required'=>'Поле ":attribute" являється обов\'язковим',
-            /*'name.required' => 'Поле являється обов`язковим',
-            'email.email' => 'Да що з тобою не так',
-            'subject.min' => 'Да ти можеш написати чи ні',*/
+            'name.required' => 'Поле являється обов`язковим',
+            'email.email' => 'Введіть поле правильно',
+            'subject.min' => 'Тема повідомлення має бути довшим',
         ];
     }
 }
