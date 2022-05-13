@@ -12,14 +12,17 @@ class ContactController extends Controller
     public function home(){
         return view('NewDataPeople.home');
     }
+    
     public function index(){
         $contact = new Contact();
         Paginator::useBootstrap();
         return view('NewDataPeople.table', ['contact_data' => Contact::paginate()]);
     }
+    
     public function create(){
         return view('NewDataPeople.contact');
     }
+    
     public function about(){
         return view('NewDataPeople.about');
     }
@@ -33,18 +36,20 @@ class ContactController extends Controller
         $contact->save();
 
         return redirect()->route('table1')->with('success', 'Повідомлення було відправленно');
-
     }
+    
     public function showOne($id, Contact $data)
     {
         $contact = Contact::where('id', $id)->first();
         return view('NewDataPeople.one-message', ['data' => $contact]);
     }
+    
     public function update($id) {
         $car = new Contact();
         $car = Contact::where('id', $id)->first();
         return view('NewDataPeople.update-message', ['data' => $car]);
     }
+    
     public function update_submit($id, ContactRequest $request) {
         $contact = Contact::find($id);
         $contact->name=$request->input('name');
@@ -65,6 +70,4 @@ class ContactController extends Controller
         $contact = Contact::find(1);
         return $contact->car->title;
     }
-
-
 }
