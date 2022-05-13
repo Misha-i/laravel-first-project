@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\CarController;
-use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
-use App\Http\Requests\CarRequest;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
