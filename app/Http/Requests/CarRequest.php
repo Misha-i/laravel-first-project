@@ -34,7 +34,7 @@ class CarRequest extends FormRequest
     }
     public function messages(){
         return [
-            'name.required' => 'Та блін'
+            'name.required' => 'Введіть дані'
         ];
     }
 }
