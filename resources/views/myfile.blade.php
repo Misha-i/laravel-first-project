@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <style>
-    h1 {color: blue; }
+    h1 {
+        color: blue;
+    }
 </style>
 <body>
 <h1>Пізніше цей файл видалити, він для тестування роботи git</h1>

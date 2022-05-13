@@ -27,14 +27,10 @@ class CarRequest extends FormRequest
             'name' => 'required|min:5|max:50',
         ];
     }
-    public function attributes(){
-        return [
-            'name' => 'Ім\'я'
-        ];
-    }
+
     public function messages(){
         return [
-            'name.required' => 'Та блін'
+            'name.required' => 'Введіть назву машини',
         ];
     }
 }
