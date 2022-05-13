@@ -34,7 +34,6 @@ class ContactController extends Controller
         $contact->subject=$request->input('subject');
         $contact->message=$request->input('message');
         $contact->save();
-
         return redirect()->route('table1')->with('success', 'Повідомлення було відправленно');
     }
     
@@ -57,7 +56,6 @@ class ContactController extends Controller
         $contact->subject=$request->input('subject');
         $contact->message=$request->input('message');
         $contact->save();
-
         return redirect()->route('table1')->with('success', 'Повідомлення було оновлено');
     }
 
