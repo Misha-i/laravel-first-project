@@ -98,14 +98,12 @@ class CarController extends Controller
         $car->car = $request->input('name');
         $car->contact_id = $request->input('contact_id');
         $car->save();
-
         return redirect()->route('table')->with('success', 'Повідомлення було відправленно');
     }
 
     public function showOneCar($id)
     {
         $car = Car::where('id', $id)->first();
-
         return view('newProject.one-message', ['data' => $car]);
     }
 
@@ -123,7 +121,6 @@ class CarController extends Controller
         $car->car = $request->input('name');
         $car->contact_id = $request->input('contact_id');
         $car->save();
-
         return redirect()->route('car-all', $id)->with('success', 'Повідомлення було оновленно');
     }
 
