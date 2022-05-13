@@ -97,13 +97,8 @@ class CarController extends Controller
         $car = new Car();
         $car->car=$request->input('name');
         $car->contact_id=$request->input('contact_id');
-        // $car->contacts()->save($contact);
         $car->save();
-
-        // Зберігаємо
-
         return redirect()->route('table')->with('success', 'Повідомлення було відправленно');
-        // повертаємо сторінку по роуті table з повідомленням
     }
 
     public function showOneCar($id) {
@@ -117,19 +112,11 @@ class CarController extends Controller
         $contacts = Contact::all();
         return view('newProject.update-message', ['car' => $car, 'contacts' => $contacts]);
     }
-    /*public function updateMessage($id) {
-        $car = new Car();
-        $car = Car::where('id', $id)->first();
-        $contacts = Contact::all();
-        return view('newProject.update-message', ['data' => $car, 'contacts' => $contacts]);
-    }*/
 
     public function updateMessageSubmit($id, CarRequest $request) {
-
         $car = Car::find($id);
         $car->car=$request->input('name');
         $car->contact_id=$request->input('contact_id');
-
         $car->save();
 
         return redirect()->route('car-all', $id)->with('success', 'Повідомлення було оновленно');
@@ -139,15 +126,5 @@ class CarController extends Controller
         Car::find($id)->delete();
         return redirect()->route('table')->with('success', 'Повідомлення було видалено');
     }
-
-    /*public function showUserId($id) {
-
-        $users = Car::find($id)->users;
-        dd($users);
-
-        // return view('newProject.home');
-
-    }*/
-
 
 }
