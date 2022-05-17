@@ -84,11 +84,65 @@ class CarController extends Controller
         }
         $car->car = $request_data["car"];
         $car->contact_id = $request_data["contact_id"];
-
         $car->save();
+
         return response()->json([
             "status" => true,
             "Message" => "Car is updated"
         ])->setStatusCode(200, "Car is updated");
+    }
+
+    public function patchCar($id, Request $request)
+    {
+        $request_data = $request->only(['car', 'contact_id']);
+
+        if (count($request_data) === 0) {
+            return response()->json([
+                "status" => false,
+                "message" => "All fields is empty"
+            ])->setStatusCode(422, "All fields is empty");
+        }
+
+        $rules_const = [
+            "car" => ['required', 'string'],
+            "contact_id" => ['required', 'string']
+        ];
+        $rules = [];
+
+        foreach ($request_data as $key => $data) {
+            $rules[$key] = $rules_const[$key];
+        }
+        $validator = Validator::make($request_data, $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                "status" => false,
+                "errors" => $validator->messages()
+            ])->setStatusCode(422);
+        }
+
+        $car = Car::find($id);
+
+        if (!$car) {
+            return response()->json([
+                "status" => false,
+                "message" => "Car not found"
+            ])->setStatusCode(404, "Car not found");
+        }
+        foreach ($request_data as $key => $data) {
+            $car->$key = $data;
+        }
+        $car->save();
+
+        return response()->json([
+            "status" => true,
+            "message" => "Car is updated"
+        ])->setStatusCode(200, "Car is updated");
+    }
+
+    public function deleteCar()
+    {
+
+
     }
 }

@@ -29,4 +29,6 @@ Route::post('/car/create', [CarController::class, "createCar"]);
 
 Route::put('/car/{id}', [CarController::class, "putCar"]);
 
-// Route::patch('/car/{id}', [CarController::class, "patchCar"]);
+Route::patch('/car/{id}', [CarController::class, "patchCar"]);
+
+/*Route::delete('/car/{id}', [CarController::class, "deleteCar"]);*/
