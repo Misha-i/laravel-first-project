@@ -13,12 +13,10 @@ class CarController extends Controller
     {
         $car = Car::all();
         return response()->json($car);
-
     }
 
     public function show($id)
     {
-
         $car = Car::find($id);
 
         if (!$car) {
@@ -28,7 +26,6 @@ class CarController extends Controller
             ])->setStatusCode(404, 'Car not Found');
         }
         return response()->json($car);
-
     }
 
     public function store(Request $request)
@@ -109,6 +106,5 @@ class CarController extends Controller
             "status" => true,
             "message" => "Car is delete"
         ])->setStatusCode(200, "Car is delete");
-
     }
 }
