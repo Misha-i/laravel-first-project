@@ -11,9 +11,9 @@ class CarController extends Controller
 {
     public function index()
     {
-
         $car = Car::all();
         return response()->json($car);
+
     }
 
     public function show($id)
@@ -24,7 +24,7 @@ class CarController extends Controller
         if (!$car) {
             return response()->json([
                 "status" => false,
-                "message" => "Post not Found"
+                "message" => "Car not Found"
             ])->setStatusCode(404, 'Car not Found');
         }
         return response()->json($car);
