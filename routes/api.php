@@ -16,19 +16,5 @@ use App\Http\Controllers\Api\CarController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// GET
 
-/*
- * Отримання списку постів із таблиці cars
-*/
-
-Route::get('/car', [CarController::class, "showCar"]);
-
-Route::get('/car/{id}', [CarController::class, "showOneCar"]);
-Route::post('/car/create', [CarController::class, "createCar"]);
-
-Route::put('/car/{id}', [CarController::class, "putCar"]);
-
-Route::patch('/car/{id}', [CarController::class, "patchCar"]);
-
-Route::delete('/car/{id}', [CarController::class, "deleteCar"]);
+Route::resource('/car', CarController::class);
