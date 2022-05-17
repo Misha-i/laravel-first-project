@@ -25,3 +25,4 @@ use App\Http\Controllers\Api\CarController;
 Route::get('/car', [CarController::class, "showCar"]);
 
 Route::get('/car/{id}', [CarController::class, "showOneCar"]);
+Route::post('/car/create', [CarController::class, "createCar"]);
