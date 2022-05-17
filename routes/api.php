@@ -31,4 +31,4 @@ Route::put('/car/{id}', [CarController::class, "putCar"]);
 
 Route::patch('/car/{id}', [CarController::class, "patchCar"]);
 
-/*Route::delete('/car/{id}', [CarController::class, "deleteCar"]);*/
+Route::delete('/car/{id}', [CarController::class, "deleteCar"]);

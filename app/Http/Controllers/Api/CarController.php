@@ -140,9 +140,23 @@ class CarController extends Controller
         ])->setStatusCode(200, "Car is updated");
     }
 
-    public function deleteCar()
+    public function deleteCar($id)
     {
+        $car = Car::find($id);
 
+        if (!$car) {
+            return response()->json([
+                "status" => false,
+                "message" => "Car not found"
+            ])->setStatusCode(404, "Car not found");
+        }
+
+        $car->delete();
+
+        return response()->json([
+            "status" => true,
+            "message" => "Car is delete"
+        ])->setStatusCode(200, "Car is delete");
 
     }
 }
