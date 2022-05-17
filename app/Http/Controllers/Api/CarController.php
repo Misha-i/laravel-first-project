@@ -40,7 +40,7 @@ class CarController extends Controller
             "contact_id" => ['required']
         ]);
 
-        if ($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
                 "status" => false,
                 "errors" => $validator->messages()
@@ -56,5 +56,39 @@ class CarController extends Controller
             "status" => true,
             "car" => $car
         ])->setStatusCode(201, "Car is created");
+    }
+
+    public function putCar($id, Request $request)
+    {
+        $request_data = $request->only(['car', 'contact_id']);
+
+        $validator = Validator::make($request_data, [
+            "car" => ['required', 'string'],
+            "contact_id" => ['required']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                "status" => false,
+                "errors" => $validator->messages()
+            ])->setStatusCode(422);
+        }
+
+        $car = Car::find($id);
+
+        if (!$car) {
+            return response()->json([
+                "status" => false,
+                "message" => "Car not found"
+            ])->setStatusCode(404, "Car not Found");
+        }
+        $car->car = $request_data["car"];
+        $car->contact_id = $request_data["contact_id"];
+
+        $car->save();
+        return response()->json([
+            "status" => true,
+            "Message" => "Car is updated"
+        ])->setStatusCode(200, "Car is updated");
     }
 }

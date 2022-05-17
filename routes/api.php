@@ -26,3 +26,7 @@ Route::get('/car', [CarController::class, "showCar"]);
 
 Route::get('/car/{id}', [CarController::class, "showOneCar"]);
 Route::post('/car/create', [CarController::class, "createCar"]);
+
+Route::put('/car/{id}', [CarController::class, "putCar"]);
+
+// Route::patch('/car/{id}', [CarController::class, "patchCar"]);
