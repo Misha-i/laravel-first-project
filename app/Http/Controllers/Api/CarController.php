@@ -72,7 +72,6 @@ class CarController extends Controller
         }
 
         $car = Car::find($id);
-
         if (!$car) {
             return response()->json([
                 "status" => false,

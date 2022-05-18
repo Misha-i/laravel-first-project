@@ -21,6 +21,5 @@ class ContactResource extends JsonResource
             'subject' => $this->subject,
             'message' => $this->message,
         ];
-        // return parent::toArray($request);
     }
 }
