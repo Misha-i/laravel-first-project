@@ -37,3 +37,7 @@ Route::get('/table1/{id}', [ContactController::class, 'showOne'])->name('showOne
 Route::get('/table1/{id}/update', [ContactController::class, 'update'])->name('update');
 Route::post('/table1/{id}/update', [ContactController::class, 'update_submit'])->name('update_submit');
 Route::get('/table1/{id}/delete', [ContactController::class, 'delete'])->name('delete');
+
+Route::get('/new', function(){
+    return view('test');
+});

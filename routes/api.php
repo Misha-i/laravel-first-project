@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Resources\CarResource;
-use App\Models\Car;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
