@@ -41,3 +41,6 @@ Route::get('/table1/{id}/delete', [ContactController::class, 'delete'])->name('d
 Route::get('/new', function(){
     return view('test');
 });
+Route::get('/new1', function(){
+    return view('test1');
+});
