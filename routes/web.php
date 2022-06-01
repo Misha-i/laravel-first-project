@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,3 +45,18 @@ Route::get('/new', function(){
 Route::get('/new1', function(){
     return view('test1');
 });
+
+Route::get(' testchat', function(){
+    return view('testchat');
+});
+
+Route::get('/order', function(){
+    return view('order');
+});
+
+Route::get('/orders', function(){
+    return view('orders');
+});
+Route::get('/order', function (\Illuminate\Http\Request $request){
+    return response()->redirectTo('/order');
+})->name('order.store');
