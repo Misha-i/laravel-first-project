@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ChatOnlineController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,3 +61,9 @@ Route::get('/orders', function(){
 Route::get('/order', function (\Illuminate\Http\Request $request){
     return response()->redirectTo('/order');
 })->name('order.store');
+
+Route::get('onlinechat', [ChatOnlineController::class, 'index'])->name('onlinechat');
+Route::get('user', [ChatOnlineController::class, 'name'])->name('create1');
+Route::post('createuser', [ChatOnlineController::class, 'create'])->name('createUser');
+
+

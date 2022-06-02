@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('chats', function (Blueprint $table) {
-            $table->id();
-            $table->name();
-            $table->message();
-            $table->timestamps();
+        Schema::table('chats_online', function (Blueprint $table) {
+            $table->text('message')->nullable();
         });
     }
 
